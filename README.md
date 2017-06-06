@@ -28,3 +28,28 @@ After you successfully created a new Vivado project do the following steps to cr
     ![menu - tools - create and package ip](./images/create_and_package_ip01.png "menu - tools - create and package ip")
 
 
+2. Click _Next >_
+
+    ![click next](./images/create_and_package_ip02.png "click next")
+
+
+3. Choose _Create a new AXI4 peripheral_.
+
+    ![choose create a new axi4 peripheral](./images/create_and_package_ip03.png "choose create a new axi4 peripheral")
+
+
+4. Choose a name, description and location for the new AXI4 peripheral. The name in this tutorial is `axi4_pl_interrupt_generator` and the location is `[...]/ip_repo`.
+
+    ![choose name and description](./images/create_and_package_ip04.png "choose name and description")
+
+
+5. Keep the AXI4-Lite slave interface and click _Next >_
+
+    ![click next](./images/create_and_package_ip05.png "click next")
+
+
+6. Choose _Edit IP_ and click _Finish_
+
+    ![edit ip](./images/create_and_package_ip06.png "edit ip")
+
+
