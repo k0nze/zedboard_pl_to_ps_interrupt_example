@@ -158,3 +158,52 @@ And navigate to _User Repository -> AXI Peripheral -> axi4\_pl\_interrupt\_gener
 
 ![edit ip edit in ip packager](./images/edit_ip11.png "edit ip edit in ip packager")
 
+
+## Zynq Block Diagram
+
+So that your custom AXI4 IP can be implemented on the Zynq PL and connected to the Zynq PS you have to create a block diagram in Vivado. The following steps will show you how to do that:
+
+1. Click on _Flow Navigator -> IP Integrator -> Create Block Diagram_.
+
+    ![create block diagram](./images/block_diagram01.png "create block diagram")
+
+
+2. Choose a name, directory, and specify a source set for the block diagram. In this tutorial everything stays at the default.
+
+    ![block diagram choose name](./images/block_diagram02.png "block diagram choose name")
+
+
+3. Right-click on the white background of the _Diagram_ tab and choose _Add IP_.
+
+    ![block diagram add ip](./images/block_diagram03.png "block diagram add ip")
+
+4. From the list of IPs choose _ZYNQ7 Processing System_ (this is the Zynq PS) and double-click on it. 
+
+    ![block diagram zynq ps](./images/block_diagram04.png "block diagram zynq ps")
+
+
+5. You can now see the Zynq PS in the block diagram. Click on _Run Block Automation_ to connect the Zynq PS with the memory.
+
+    ![block diagram run block automation](./images/block_diagram05.png "block diagram run block automation")
+
+
+6. Leave everything at the default values and click on _OK_.
+
+    ![block diagram run block automation ok](./images/block_diagram06.png "block diagram run block automation ok")
+
+
+7. To connect the interrupt ports of your AXI4 IP to the Zynq PS the Zynq PS needs interrupt ports. To enable those interrupt ports double-click on the Zynq PS in the block diagram.
+
+    ![block diagram zynq ps](./images/block_diagram07.png "block diagram zynq ps")
+
+8. In the _Re-customize IP_ window go to _Page -> Navigator -> Interrupts_.
+
+    ![block diagram interrupts](./images/block_diagram08.png "block diagram interrupts")
+
+
+9. Unfold _Fabric Interrupts -> PL-PS Interrupt Ports_ and check _IRQ\_F2P[15:0]_ and click _OK_.
+
+    ![block diagram irq f2p](./images/block_diagram09.png "block diagram irq f2p")
+
+
+10. TODO
