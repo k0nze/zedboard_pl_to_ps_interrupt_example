@@ -233,7 +233,7 @@ So that your custom AXI4 IP can be implemented on the Zynq PL and connected to t
 
 15. To connect the _interrupt\_0_ and _interrupt\_1_ outputs of your custom AXI4 IP to the Zynq PS. Add another module by right-clicking on the white background and choose _Add IP_ and select _Concat_.
 
-    ![block diagram concat](./images/block_diagram14.png "block diagram concat")
+    ![block diagram concat](./images/block_diagram15.png "block diagram concat")
 
 
 16. Connect the _In0_ and _In1_ inputs of the _xlconcat\_0_ module to the _interrupt\_0_ and _interrupt\_1_ outputs of your custom AXI4 IP by hovering with the curser over on of _interrupt\_*_ outputs and drawing a line a with the pencil to one of the _In*_ inputs. Do this for both _interupt\_*_ outputs.
@@ -269,3 +269,31 @@ So that your custom AXI4 IP can be implemented on the Zynq PL and connected to t
 22. Leave everything at its default and click _Generate_. 
 
     ![block diagram generate](./images/block_diagram22.png "block diagram generate")
+
+
+## Synthesis and implementation
+To bring the custom AXI4 IP with the block diagram to the Zynq PL you have to synthesize and implement it.
+
+1. Start the synthesis by click on Run Synthesis in _Flow Navigator -> Synthesis_.
+
+    ![run synthesis](./images/synthesis_and_implementation01.png "run synthesis")
+
+
+2. Leave everything at its default and click _OK_ to launch the systhesis. 
+
+    ![launch synthesis](./images/synthesis_and_implementation02.png "launch synthesis")
+
+
+3. After the synthesis is finished choose _Run implementation_ and click on _OK_ to run the implementation.
+
+    ![run implementation](./images/synthesis_and_implementation03.png "run implementation")
+
+
+4. When the implementation is finished choose _Generate Bitstream_ and click on _OK_ to generate the bitstream which contains the configuration data for the Zynq PL. 
+
+    ![generate bitstream](./images/synthesis_and_implementation04.png "generate bitstream")
+
+
+5. Lastly, when the bitstream generation is finished you can look at the reports to see if all contraints are fulfilled. Choose _View Reports_ and click OK. (However, this is not necessary here since the design is very simple).
+
+    ![view reports](./images/synthesis_and_implementation05.png "view reports")
