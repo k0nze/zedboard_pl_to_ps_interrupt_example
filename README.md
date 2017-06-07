@@ -355,7 +355,7 @@ The C program which will be transferred to the Zynq PS is going to setup the int
     #include "xil_exception.h"
 
     #define INTC_INTERRUPT_ID_0 61 // IRQ_F2P[0:0]
-    #define INTC_INTERRUPT_ID_0 62 // IRQ_F2P[1:1]
+    #define INTC_INTERRUPT_ID_1 62 // IRQ_F2P[1:1]
 
     // instance of interrupt controller
     static XScuGic intc;
@@ -367,7 +367,7 @@ The C program which will be transferred to the Zynq PS is going to setup the int
 
     void isr0 (void *intc_inst_ptr);
     void isr1 (void *intc_inst_ptr);
-    void nops(unsigned int num); 
+    void nops(unsigned int num);
 
     int main() {
         init_platform();
@@ -509,6 +509,7 @@ The C program which will be transferred to the Zynq PS is going to setup the int
             asm("nop");
         }
     }
+ 
     ```
 
 9. Program the Zynq PL with the previously generated bitstream by going to _Menu -> Xilinx Tools -> Program FPGA_.
