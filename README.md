@@ -206,4 +206,66 @@ So that your custom AXI4 IP can be implemented on the Zynq PL and connected to t
     ![block diagram irq f2p](./images/block_diagram09.png "block diagram irq f2p")
 
 
-10. TODO
+10. Now its time to add your custom AXI4 IP. Right-click on the white background of the _Diagram_ tab and choose _Add IP_.
+
+    ![block diagram add ip](./images/block_diagram03.png "block diagram add ip")
+
+
+11. From the list of IPs choose _axi4\_pl\_interrupt\_generator\_v1.0_ (this is your custom AXI4 IP) and double click on it to add it to the block diagram. 
+
+    ![block diagram axi4 ip](./images/block_diagram10.png "block diagram axi4 ip")
+
+
+12. Click on _Run Connection Automation_ to connect your custom AXI4 IP to the Zynq PS via the AXI4 bus. 
+
+    ![block diagram run connection automation](./images/block_diagram11.png "block diagram connection automation")
+
+
+13. Check _S00\_AXI_ in the tree on the left-hand side. Select _/processing\_system7\_0/FCLK\ CLK0_ in the list of _Clock Connections_ and click on OK.
+
+    ![block diagram clock connection](./images/block_diagram12.png "block diagram clock connection")
+
+
+14. After the connection automation is done click on ![block diagram regenerate layout](./images/block_diagram13.png "block diagram regenerate layout") to regenerate the layout of the block diagram. Your block diagram should now look like this:
+
+    ![block diagram axi4 connection done](./images/block_diagram14.png "block diagram axi4 connection done")
+
+
+15. To connect the _interrupt\_0_ and _interrupt\_1_ outputs of your custom AXI4 IP to the Zynq PS. Add another module by right-clicking on the white background and choose _Add IP_ and select _Concat_.
+
+    ![block diagram concat](./images/block_diagram14.png "block diagram concat")
+
+
+16. Connect the _In0_ and _In1_ inputs of the _xlconcat\_0_ module to the _interrupt\_0_ and _interrupt\_1_ outputs of your custom AXI4 IP by hovering with the curser over on of _interrupt\_*_ outputs and drawing a line a with the pencil to one of the _In*_ inputs. Do this for both _interupt\_*_ outputs.
+
+    ![block diagram draw connection](./images/block_diagram16.png "block diagram connection")
+
+
+17. Afterwards connection the _dout_ output of the _xlconcat\_0_ to the _IRQ\_F2P_ input of the Zynq PS.
+
+    ![block diagram zynq ps interrupt connection](./images/block_diagram17.png "block diagram zynq ps interrupt connection")
+
+
+18. The block diagram is now finished. In the _Sources Panel_ navigate to _Design Sources -> design\_1_.
+
+    ![block diagram sources panel](./images/block_diagram18.png "block diagram sources panel")
+
+
+19. Right-click on _design\_1_ and choose _Create HDL Wrapper_. This generates HDL code for the block diagram which is necessary for the synthesis.
+
+    ![block diagram create hdl wrapper](./images/block_diagram19.png "block diagram create hdl wrapper")
+
+
+20. Choose _Let Vivado manage wrapper and auto-update_ and click _OK_. This will always update your HDL wrapper when the block diagram was changed.
+
+    ![block diagram update hdl wrapper](./images/block_diagram20.png "block diagram update hdl wrapper")
+
+
+21. Afterwards output products for the your block diagramm have to generated. Navigate in the Sources Panel to _design\_1\_i_, right-click on it and choose _Generate Output Products_
+
+    ![block diagram generate output products](./images/block_diagram21.png "block diagram generate output products")
+
+
+22. Leave everything at its default and click _Generate_. 
+
+    ![block diagram generate](./images/block_diagram22.png "block diagram generate")
